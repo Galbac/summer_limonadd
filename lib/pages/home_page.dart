@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:summer_limonad/models/product.dart';
+import 'package:summer_limonad/widgets/catalog.dart';
 import 'package:summer_limonad/widgets/item_card.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -53,7 +54,9 @@ class MyHomePage extends StatelessWidget {
                 padding: EdgeInsets.all(10),
                 child: Text("Каталог коктейлей"),
               ),
-              const Text("Список каталогов"),
+              ...productData.items.map((value) {
+                return CatalogListTile(imgUrl: value.imgUrl);
+              }).toList(),
             ],
           ),
         ),
