@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:summer_limonad/pages/catalog_page.dart';
 
 class CatalogListTile extends StatelessWidget {
   final imgUrl;
@@ -8,9 +9,17 @@ class CatalogListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){},
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => ItemCatalog(
+              imgUrl: imgUrl,
+            ),
+          ),
+        );
+      },
       child: Container(
-         padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         child: ListTile(
           leading: Container(
             width: 60,

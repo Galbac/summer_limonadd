@@ -98,6 +98,7 @@ class ItemPage extends StatelessWidget {
                                 title: data.title,
                               );
                             },
+                      color:Theme.of(context).primaryColor,
                             child: const Text('Добавить в корзину'),
                           ),
                   ],
