@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:summer_limonad/models/Cart.dart';
+import 'package:summer_limonad/pages/cart_page.dart';
 
 class BottomBar extends StatelessWidget {
   const BottomBar({Key? key}) : super(key: key);
@@ -19,7 +20,7 @@ class BottomBar extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Container(
+            SizedBox(
               height: 50,
               width: MediaQuery.of(context).size.width / 2 + 50,
               child: ListView.builder(
@@ -80,7 +81,7 @@ class BottomBar extends StatelessWidget {
                 ),
               ),
             ),
-            Container(
+            SizedBox(
               height: 50,
               width: MediaQuery.of(context).size.width / 2 - 50,
               child: Row(
@@ -90,7 +91,10 @@ class BottomBar extends StatelessWidget {
                     cartData.totalAmount.toStringAsFixed(2),
                   ),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const CartPage()));
+                    },
                     icon: const Icon(
                       Icons.shopping_basket,
                       color: Color(0xFF676E79),
