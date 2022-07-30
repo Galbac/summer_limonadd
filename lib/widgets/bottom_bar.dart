@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:summer_limonad/models/Cart.dart';
 import 'package:summer_limonad/pages/cart_page.dart';
+import 'package:summer_limonad/pages/item_page.dart';
 
 class BottomBar extends StatelessWidget {
   const BottomBar({Key? key}) : super(key: key);
@@ -29,7 +30,11 @@ class BottomBar extends StatelessWidget {
                 itemBuilder: (context, index) => Hero(
                   tag: cartItems.values.toList()[index].imgUrl,
                   child: GestureDetector(
-                    onTap: () {},
+                    onTap: () { Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) =>  ItemPage(productId: cartItems.keys.toList()[index]),
+                      ),
+                    );},
                     child: Stack(
                       alignment: Alignment.center,
                       children: [
